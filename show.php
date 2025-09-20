@@ -13,7 +13,7 @@
 
         .gallery img {
             width: 100%;
-            padding: 10px; 
+            padding: 10px;
             background: #fff;
             box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
             cursor: pointer;
@@ -73,25 +73,22 @@
         </nav>
     </header>
 
-
-
     <section class="gallery min-vh-100">
         <div class="container-lg">
 
             <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
                 <?php
                 $conn = mysqli_connect("localhost", "root", "", "image_view");
-                if (!$conn) 
-                {
+                if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
                 // Fetch images
                 $sql = "SELECT * FROM gallery ORDER BY id DESC";
                 $result = mysqli_query($conn, $sql);
-                if(mysqli_num_rows($result) > 0)
+                if (mysqli_num_rows($result) > 0) 
                 {
-                  while ($row = mysqli_fetch_assoc($result)) 
-                  {
+                    while ($row = mysqli_fetch_assoc($result)) 
+                    {
                 ?>
 
                     <div class="col">
@@ -99,13 +96,13 @@
                     </div>
 
                 <?php
-                  }
-                    
-                }
-                else
+                    }
+                } 
+                else 
                 {
                     echo "No records found.";
                 }
+                 mysqli_close($conn);
                 ?>
 
             </div>
